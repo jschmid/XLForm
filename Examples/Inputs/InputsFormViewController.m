@@ -76,6 +76,17 @@ NSString *const kNotes = @"notes";
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kNumber rowType:XLFormRowDescriptorTypeNumber title:@"Number"];
     [section addFormRow:row];
     
+    // We just add a selector to try the "back" button
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"testpush" rowType:XLFormRowDescriptorTypeSelectorPush title:@"Push"];
+    row.selectorOptions = @[[XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"Option 1"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(1) displayText:@"Option 2"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(2) displayText:@"Option 3"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(3) displayText:@"Option 4"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(4) displayText:@"Option 5"]
+                            ];
+    row.value = [XLFormOptionsObject formOptionsObjectWithValue:@(1) displayText:@"Option 2"];
+    [section addFormRow:row];
+    
     // Integer
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kInteger rowType:XLFormRowDescriptorTypeInteger title:@"Integer"];
     [section addFormRow:row];
